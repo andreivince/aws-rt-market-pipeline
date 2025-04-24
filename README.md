@@ -1,12 +1,20 @@
 # Real-Time Market Data Pipeline
 
-> 📌 **Note:** All metrics currently based on simulated data. Real-time integration will be evaluated post-traction phase.
+> 🚀 **Live infrastructure. Real AWS deployment. Not a toy repo.**
+
+This project is my first production-grade backend — an open-source, serverless **real-time market data pipeline** built to run at scale under extreme constraints:
+
+- ⚙️ Deployed with **AWS CDK (TypeScript)** using Lambda, DynamoDB, and API Gateway  
+- 💸 Designed for **1M+ req/month at sub-$10/month** infra cost  
+- 🔁 Currently running with **simulated tick data ingestion + DynamoDB storage**
+
+I'm building it in public. No fluff. No "learning project" disclaimers.  
+If you're into high-throughput infra, AWS-native ops, and real observability — this is for you.
 
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![Coverage](https://img.shields.io/badge/coverage-0%25-yellow)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
----
 
 ## 🚀 Project Overview
 
