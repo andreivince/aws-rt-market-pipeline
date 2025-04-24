@@ -69,12 +69,12 @@ Building trading systems, analytics dashboards, or real-time APIs? This project 
 graph TD
     Feed[Market Data Feed (Simulated)] --> LambdaIngest[Lambda: Ingest]
     LambdaIngest --> Dynamo[(DynamoDB Ticks)]
-    Dynamo --> LambdaQuery[Lambda: Query]
-    LambdaQuery --> APIGW[API Gateway (REST)]
     Dynamo --> Stream[DynamoDB Streams]
     Stream --> LambdaFanout[Lambda: Fan-out Dispatcher]
     LambdaFanout --> LambdaWS[Lambda: WebSocket Broadcaster]
     LambdaWS --> ApiGWWS[API Gateway WS]
+    Stream --> LambdaQuery[Lambda: Query]
+    LambdaQuery --> APIGW[API Gateway REST]
 ```
 
 **Key components explained:**
