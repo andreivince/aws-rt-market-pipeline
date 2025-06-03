@@ -112,8 +112,14 @@ This architecture ensures **low-latency, scalable, and cost-effective** real-tim
 - **AWS Services:** Lambda, DynamoDB, API Gateway, SQS, CloudWatch, X-Ray, WAF  
 - **Infrastructure as Code:** AWS CDK (TypeScript)  
 - **Observability:** CloudWatch, Grafana, AWS X-Ray  
-- **CI/CD:** AWS CodeCatalyst, Jest, Artillery  
-- **Frontend (coming soon):** Next.js Real-time Dashboard (WebSocket)  
+- **CI/CD:** AWS CodeCatalyst, Jest, Artillery
+- **Frontend (coming soon):** Next.js Real-time Dashboard (WebSocket)
+
+## 📈 Traffic Simulator
+
+The `traffic-simulator/sendTick.ts` script generates mock market data and sends
+it to the ingestion endpoint. Set the `INGEST_ENDPOINT` environment variable to
+the API Gateway URL before running the script.
 
 ---
 

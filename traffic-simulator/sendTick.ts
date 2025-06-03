@@ -1,9 +1,14 @@
-import axios from 'axios' // Clean, better than Fetch to be honest
+import axios from 'axios'
 
-const SYMBOLS = ['AAPL', 'GOOGL', 'AMZN'];
+const INGEST_ENDPOINT = process.env.INGEST_ENDPOINT
+if (!INGEST_ENDPOINT) {
+    throw new Error('INGEST_ENDPOINT environment variable not set')
+}
+
+const SYMBOLS = ['AAPL', 'GOOGL', 'AMZN']
 
 function getRandomPrice(): number {
-    return +(Math.random() * 1000 + 100).toFixed(2);
+    return +(Math.random() * 1000 + 100).toFixed(2)
 }
 
 async function sendTick() {
@@ -11,21 +16,15 @@ async function sendTick() {
     const price = getRandomPrice()
     const timestamp = Date.now()
 
-    const payload = {
-        symbol,
-        price,
-        timestamp
-    }
+    const payload = { symbol, price, timestamp }
 
     try {
-        const response = await axios.post('https://a1624qsyva.execute-api.us-east-1.amazonaws.com/prod/ingest', payload)
-        console.log("Sent to Ingest Lambda")
+        await axios.post(INGEST_ENDPOINT, payload)
+        console.log('Sent to Ingest Lambda')
     } catch (error) {
         console.error('Failed to send tick:', error)
     }
 }
-
-// setInterval(sendTick, 1000); // every 1 second
 
 setInterval(() => {
     for (let i = 0; i < 50; i++) {
